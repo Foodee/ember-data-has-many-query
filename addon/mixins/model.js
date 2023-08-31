@@ -78,7 +78,9 @@ export default Mixin.create({
         //don't clear parameters if they've been set by another request
         return;
       }
-      self.set(_ajaxOptionsPropertyName, undefined);
+      if(!self.isDestroyed) {
+        self.set(_ajaxOptionsPropertyName, undefined);
+      }
     });
   },
 
